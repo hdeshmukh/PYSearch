@@ -140,7 +140,7 @@
         UIButton *emptyButton = [[UIButton alloc] init];
         emptyButton.titleLabel.font = self.searchHistoryHeader.font;
         [emptyButton setTitleColor:PYTextColor forState:UIControlStateNormal];
-        [emptyButton setTitle:@"清空" forState:UIControlStateNormal];
+        [emptyButton setTitle:@"Clear" forState:UIControlStateNormal];
         [emptyButton setImage:[UIImage imageNamed:@"PYSearch.bundle/empty"] forState:UIControlStateNormal];
         [emptyButton addTarget:self action:@selector(emptySearchHistoryDidClick) forControlEvents:UIControlEventTouchUpInside];
         [emptyButton sizeToFit];
@@ -235,7 +235,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
     self.baseSearchTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardDidShowNotification object:nil];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStyleDone target:self action:@selector(cancelDidClick)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleDone target:self action:@selector(cancelDidClick)];
     
     /**
      * 设置一些默认设置
@@ -774,7 +774,7 @@
         // 更新
         self.searchHistoryStyle = self.searchHistoryStyle;
     }
-    PYSEARCH_LOG(@"清空历史记录");
+    PYSEARCH_LOG(@"Clear History");
 }
 
 /** 选中标签 */
@@ -800,7 +800,7 @@
             [self searchBarSearchButtonClicked:self.searchBar];
         }
     }
-    PYSEARCH_LOG(@"搜索 %@", label.text);
+    PYSEARCH_LOG(@"Tag Clicked %@", label.text);
 }
 
 /** 添加标签 */
