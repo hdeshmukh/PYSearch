@@ -15,6 +15,8 @@
 - [x] Support search history (record) cache
 - [x] Support callback using delegate or block completion search
 - [x] Support CocoaPods
+- [x] Support localization
+- [x] Support vertical and horizontal screen on iPhone and iPad
 
 ## Requirements
 * iOS 7.0 or later
@@ -28,8 +30,9 @@
 - `PYSearchSuggestionViewController`
 
 ### Category
-- `UIColor+PYExtension`
-- `UIView+PYExtension`
+- `UIColor+PYSearchExtension`
+- `UIView+PYSearchExtension`
+- `NSBundle+PYSearchExtension`
 
 ## Contents
 * Getting Started
@@ -83,28 +86,55 @@
 
 ## <a id="Custom"></a>Custom
 
+* Custom search suggestions display
+```objc
+// 1. Set dataSource
+searchViewController.dataSource = self;
+// 2. Implement dataSource method
+```
+
+* Custom search result dispaly
+```objc
+// 1. Set searchResultShowMode
+searchViewController.searchResultShowMode = PYSearchResultShowModeEmbed;
+// 2. Set searchResultController 
+searchViewController.searchResultController = [[UIViewController alloc] init];
+```
+
 * Set hotSearchStyle（default is PYHotSearchStyleNormalTag）
 ```objc
-	// Set hotSearchStyle
-	searchViewController.hotSearchStyle = PYHotSearchStyleColorfulTag;
+// Set hotSearchStyle
+searchViewController.hotSearchStyle = PYHotSearchStyleColorfulTag;
 ```
 
 * Set searchHistoryStyle（default is PYSearchHistoryStyleCell）
 ```objc
-	// Set searchHistoryStyle
-	searchViewController.searchHistoryStyle = PYSearchHistoryStyleBorderTag;
+// Set searchHistoryStyle
+searchViewController.searchHistoryStyle = PYSearchHistoryStyleBorderTag;
 ```
 
-* Set searchResultShowMode（default is PYSearchResultShowModePush）
+* Set searchHistoriesCachePath（default is PYSEARCH_SEARCH_HISTORY_CACHE_PATH）
 ```objc
-	// Set searchResultShowMode
-	searchViewController.searchResultShowMode = PYSearchResultShowModeEmbed;
+// Set searchHistoriesCachePath
+searchViewController.searchHistoriesCachePath = @"The cache path";
+```
+
+* Set searchHistoriesCount（default is 20）
+```objc
+// Set searchHistoriesCount
+searchViewController. searchHistoriesCount = 6;
+```
+
+* Set searchResultShowMode（default is PYSearchResultShowModeCustom）
+```objc
+// Set searchResultShowMode
+searchViewController.searchResultShowMode = PYSearchResultShowModeEmbed;
 ```
 
 * Set searchSuggestionHidden（deafult is NO）
 ```objc
-	// Set searchSuggestionHidden
-	searchViewController.searchSuggestionHidden = YES;
+// Set searchSuggestionHidden
+searchViewController.searchSuggestionHidden = YES;
 ```
 
 ## <a id="Hope"></a>Hope
